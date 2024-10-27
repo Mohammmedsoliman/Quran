@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quran Kareem |  القران الكريم</title>
+  <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Bootstrap -->
+  <!-- css Files -->
+  <link rel="stylesheet" href="/css/al-omran.css">
+  <link rel="stylesheet" href="/css/all.min.css">
+  <!-- js files -->
+   <script type="module" src="../js/al-omran.js"></script>
+<body>
+  <main>
+    <div class="banner">
+      <div class="nav">
+        <div class="left">
+          <ul class="ul-nav">
+            <li class="li-nav db"><a href="/index.html" class="a-nav qw">القرآن</a>
+              <ul class="drop-down">
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية حفص عن عاصم</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية شعبة عن عاصم</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية ورش عن نافع</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية قالون عن نافع</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية السوسي عن أبي عمرو</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية قنبل عن ابن كثير</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية الدوري عن أبي عمر</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية البزي عن ابن كثير</a></li>
+                </ul>
+              </li>
+            <a class="a-nav" href="/pages/quran_pdf.html"><li class="li-nav">القرآن pdf</li></a>
+            <li class="li-nav ds"><a href="#" class="a-nav qr">القراء</a>
+              <ul class="drop-down1">
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="li-nav ds"><a href="#" class="a-nav qr">القراء</a>
+                </ul>
+              </li>     
+              <a class="a-nav" href="#"><li class="li-nav"> تواصل معنا</li></a>      
+            <img class="menu-nav" src="/assets/bars-solid (1).svg"></img>
+          </ul>
+        </div>
+        <div class="right"><img src="/assets/logo2.svg"/></div>
+      </div>
+      <span id="st" class="saurah-title"></span>
+    </div>
+    <section class="head-card">
+      <div class="container" id="con">
+    </section>
+  </main>
+  <script>
+function surahAyatContent() {
+  // جلب البيانات من API العربي
+  let arabicReq = new XMLHttpRequest();
+  let englishReq = new XMLHttpRequest();
+  
+  // نقاط النهاية الخاصة بكل لغة
+  let arabicUrl = "http://api.alquran.cloud/v1/surah/108";  // للغة العربية
+  let englishUrl = "http://api.alquran.cloud/v1/surah/108/en.asad";  // للغة الإنجليزية
+
+  // إعداد طلبات الاستجابة
+  arabicReq.responseType = 'json';
+  englishReq.responseType = 'json';
+
+  arabicReq.open('GET', arabicUrl);
+  englishReq.open('GET', englishUrl);
+
+  // إرسال الطلبات
+  arabicReq.send();
+  englishReq.send();
+
+  arabicReq.onload = function() {
+    if (arabicReq.status == 200 && arabicReq.status < 300) {
+      let arabicSurah = arabicReq.response;
+      let arabicAyat = arabicSurah.data.ayahs;
+
+      // انتظر حتى يتم تحميل الترجمة الإنجليزية أيضًا
+      englishReq.onload = function() {
+        if (englishReq.status == 200 && englishReq.status < 300) {
+          let englishSurah = englishReq.response;
+          let englishAyat = englishSurah.data.ayahs;
+
+          // تأكد من تطابق عدد الآيات في كلا الاستجابتين
+          if (arabicAyat.length === englishAyat.length) {
+            // تفريغ المحتوى قبل إضافة المحتوى الجديد
+            document.getElementById("con").innerHTML = "";
+
+            // التكرار على كل آية وعرض النص العربي والترجمة الإنجليزية
+            for (let i = 0; i < arabicAyat.length; i++) {
+              let card = `
+                <div class="card">
+                  <div class="top">
+                    <span class="ayah">${arabicAyat[i].text}</span>
+                  </div>
+                  <div class="bottom">
+                    <div class="text-con">
+                      <span style="display: block;" class="saheh-title">Saheh international</span>
+                      <span class="translation">${englishAyat[i].text}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+              document.getElementById("con").innerHTML += card;
+            }
+            
+            // تحديث اسم السورة في القسم العلوي
+            document.getElementById("st").innerHTML = arabicSurah.data.name;
+          } else {
+            alert("عدد الآيات بين العربية والإنجليزية غير متطابق!");
+          }
+        } else {
+          alert("حدث خطأ في جلب الترجمة الإنجليزية");
+        }
+      };
+    } else {
+      alert("حدث خطأ في جلب النص العربي");
+    }
+  };
+}
+
+// استدعاء الوظيفة لتحميل البيانات
+surahAyatContent();
+  </script>
+  </body>

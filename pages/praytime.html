@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مواقيت الصلاه | praying time</title>
+  <!-- css -->
+   <link rel="stylesheet" href="/css/praytime.css">
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+   <!-- js -->
+    <script src="../js/pray.js"type="module"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  
+</head>
+<body>
+  <main>
+    <div class="banner">
+      <div class="nav">
+        <div class="left">
+          <ul class="ul-nav">
+            <li class="li-nav db"><a href="#" class="a-nav qw">القرآن</a>
+              <ul class="drop-down">
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية حفص عن عاصم</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية شعبة عن عاصم</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية ورش عن نافع</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية قالون عن نافع</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية السوسي عن أبي عمرو</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية قنبل عن ابن كثير</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية الدوري عن أبي عمر</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">رواية البزي عن ابن كثير</a></li>
+                </ul>
+              </li>
+            <a class="a-nav" href="pages/quran_pdf.html"><li class="li-nav">القرآن pdf</li></a>
+            <li class="li-nav ds"><a href="#" class="a-nav qr">القراء</a>
+              <ul class="drop-down1">
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="hov-li"><a class="hov-a" style="text-decoration: none; color: rgb(255, 179, 11);" href="#">الشيخ المنشاوي</a></li>
+                <li class="li-nav ds"><a href="#" class="a-nav qr">القراء</a>
+                </ul>
+              </li>     
+              <a class="a-nav" href="#"><li class="li-nav"> تواصل معنا</li></a>      
+            <img class="menu-nav" src="/assets/bars-solid (1).svg"></img>
+          </ul>
+        </div>
+        <div class="right"><img src="/assets/logo2.svg"/></div>
+      </div>
+      <center><span class="banner-span">مواقيت الصلاة</span></center>
+    </div>
+    <center><span class="title-ayah">إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا</span></center> 
+
+     <span id="day">mo</span>
+    <section class="main-cards">
+    
+      <div class="container">
+     <div class="card">
+      <div class="salah-name-box"><span class="salah-name">الفجر</span></div>
+      <span class="time" id="fajr">0:00</span>
+     </div>
+     <div class="card">
+      <div class="salah-name-box"><span class="salah-name">الظهر</span></div>
+      <span class="time" id="duhr">0:00</span>
+     </div>
+     <div class="card">
+      <div class="salah-name-box"><span class="salah-name">العصر</span></div>
+      <span class="time" id="Asr">0:00</span>
+     </div>
+     <div class="card c1">
+      <div class="salah-name-box"><span class="salah-name">المغرب</span></div>
+      <span class="time" id="Magreb">0:00</span>
+     </div>
+     <div class="card c2">
+      <div class="salah-name-box"><span class="salah-name">العشاء</span></div>
+      <span class="time" id="isha">5:00</span>
+     </div>
+    </div>
+    </section>
+    <section class="time-org-menu">
+      <div class="cont">
+        <p id="loction"> Time added by <b><span id="orgs">Null</span></b>- <b><span id="org">m</span></b></p>
+        <button class="time-changer">Change location</button>
+      </div>
+    </section>
+    </main>
+
+</body>
+</html>
